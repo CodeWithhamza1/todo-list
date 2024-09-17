@@ -40,7 +40,7 @@ Feel free to fork the repository, make changes, and submit a pull request. All c
 
 ## 📷 Screenshots
 
-![Task List App](./assets/screenshot.png) <!-- Replace with your own screenshot -->
+![Task List App](screenshot.png) <!-- Replace with your own screenshot -->
 
 ## 🚀 Getting Started
 
