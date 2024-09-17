@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang=en>
+<head>
+<meta charset=UTF-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>To-Do List App</title>
+<script src=https://cdn.tailwindcss.com></script>
+</head>
+<style>
+    #task-list::-webkit-scrollbar { width: 10px; }
+    #task-list::-webkit-scrollbar-track { background: #2d3748; }
+    #task-list::-webkit-scrollbar-thumb { background-color: #805ad5; border-radius: 10px; border: 2px solid #2d3748; }
+    body::-webkit-scrollbar { width: 12px; }
+    body::-webkit-scrollbar-track { background: #1a202c; }
+    body::-webkit-scrollbar-thumb { background-color: #805ad5; border-radius: 10px; border: 3px solid #1a202c; }
+    #clear-tasks-btn { position: fixed; top: 16px; right: 16px; z-index: 1000; }
+    #confirm-toast { display: none; flex-direction: column; align-items: center; justify-content: center; transform: translateY(-50%); padding: 16px; }
+    .make-it-center { display: flex; justify-content: center; align-items: center; }
+</style>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex items-center justify-center">
+<div class="w-full max-w-lg p-6 rounded-lg shadow-lg bg-gray-800">
+<h1 class="text-3xl mb-4 font-bold text-center">To-Do List</h1>
+<button id=clear-tasks-btn class="p-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 focus:outline-none fixed top-4 right-4 z-50">
+<svg xmlns=http://www.w3.org/2000/svg class="h-4 w-4" fill=none viewBox="0 0 24 24" stroke=currentColor>
+<path stroke-linecap=round stroke-linejoin=round stroke-width=2 d="M6 18L18 6M6 6l12 12"/>
+</svg>
+</button>
+<div id=confirm-toast class="hidden p-4 bg-yellow-500 text-black rounded-lg shadow-lg make-it-center">
+<span id=confirm-message class=mb-2>Are you sure you want to clear all tasks?</span>
+<div class="flex space-x-4">
+<button id=confirm-btn class="px-3 py-1 bg-green-600 text-white rounded-md hover:bg-green-700 hidden">Yes</button>
+<button id=cancel-btn class="px-3 py-1 bg-red-600 text-white rounded-md hover:bg-red-700 hidden">No</button>
+</div>
+</div>
+<div class="flex mb-6">
+<input id=new-task placeholder="Add new task" class="flex-1 p-3 text-lg rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-purple-500">
+<button id=add-task-btn class="ml-2 p-3 bg-purple-600 hover:bg-purple-500 rounded-lg">Add Task</button>
+</div>
+<ul id=task-list class="space-y-3 max-h-64 overflow-y-auto"></ul>
+<div id=pagination class="mt-4 flex justify-center space-x-2">
+<button id=prev-page class="p-2 bg-gray-600 hover:bg-gray-500 rounded-lg">Previous</button>
+<span id=page-info class="p-2 text-gray-300"></span>
+<button id=next-page class="p-2 bg-gray-600 hover:bg-gray-500 rounded-lg">Next</button>
+</div>
+</div>
+<div id=toast class="hidden fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-purple-600 text-white px-4 py-2 rounded-lg shadow-lg">Toast message</div>
+<script src=app.js></script>
+</body>
+</html>
